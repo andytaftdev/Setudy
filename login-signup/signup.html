@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/signup.css">
+    <title>Signup Setudy.</title>
+    <link rel="icon" type="image/x-icon" href="/asset/icon/ic-logo-setudy.svg">
+
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="nav-logo">
+                <h1>Setudy.</h1>
+            </div>
+        </div>
+    </nav>
+    <div class="signup">
+        <div id="img-sign" class="signup-container">
+         <img src="/asset/img/img-sign-setudy.svg" alt="">
+        </div>
+        <div class="signup-container">
+            <div class="signup-form">
+                <h1>Daftar <span>Setudy.</span></h1>
+                <div class="signup-p">
+                    <p>Daftar sekarang dan akses banyak mata pelajaran dengan gratis!</p>
+                </div>
+                <form action="" id="form">
+                    <div class="input-group">
+                        <input class="input" type="email" name="email" placeholder="E-mail" id="email">
+                        <input class="input"  name="username" placeholder="Username" id="user">
+                        <input class="input" type="password" name="password" placeholder="Password" id="pass">
+                    </div>
+                    <div class="button-group">
+                        <button class="sign">Daftar</button>
+                        <div class="daftar-group">
+                            <p>Sudah mempunyai akun? <a href="/login-signup/login.html">Masuk</a></p>
+                        </div>
+                    </div>
+                   
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        const firebaseConfig = {
+    apiKey: "AIzaSyC02kA2sOKfzUPLlfeHOr66Vf3HsIpPRhw",
+    authDomain: "setudy-9d61c.firebaseapp.com",
+    databaseURL: "https://setudy-9d61c-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "setudy-9d61c",
+    storageBucket: "setudy-9d61c.appspot.com",
+    messagingSenderId: "583846931989",
+    appId: "1:583846931989:web:fd9f2effc67b313772e81c",
+    measurementId: "G-H3WL8YX8XY"
+  };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+        const auth = getAuth(app);
+        let email = document.getElementById('email');
+        let user = document.getElementById('user');
+        let password = document.getElementById('pass');
+        let form = document.getElementById('form');
+        let Register = evt => {
+            evt.preventDefault();
+
+            createUserWithEmailAndPassword(auth, email.value, password.value)
+            .then((credentials)=>{
+                set(ref(db, 'UsersAuthList/' + credentials.user.uid),{
+                    username: user.value,
+                    progress: {
+                        gaya:'',
+                        condition:0
+                    },
+                    riasec: {
+                        condition:0,
+                        r: 0,
+                        i: 0,
+                        a: 0,
+                        s: 0,
+                        e: 0,
+                        c: 0
+                    } ,
+                    nilai: {
+                     mtk:{
+                        nilai:0,
+                     condition:0
+                        
+                     },
+                     ipa:{
+                        nilai:0,
+                     condition:0
+                     },
+                     ips:{
+                        nilai:0,
+                     condition:0
+                     }
+                    },
+                    
+                    tersedia: {
+                        subject1: {
+                            img: '/asset/img/img-mtk.png',
+                            mapel: 'Matematika',
+                            kelas: 10,
+                            condition: false,
+                            ref:'/study/mtk.html',
+                            key:'subject1'
+
+                        },
+                        subject2: {
+                            img: '/asset/img/img-ipa.png',
+                            mapel: 'IPA',
+                            kelas: 10,
+                            condition: false,
+                            ref:'/study/ipa.html',
+                            key:'subject2'
+
+                        },
+                        subject3: {
+                            img: '/asset/img/img-ips.png',
+                            mapel: 'IPA',
+                            kelas: 10,
+                            condition: false,
+                            ref:'/study/avl.html',
+                            key:'subject3'
+
+                        }
+                        
+                    }
+
+                })
+                setTimeout(()=>{
+                    location.href="/login-signup/login.html"
+
+                },1000)
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+        }
+        form.addEventListener('submit', Register);
+      </script>
+</body>
+</html>

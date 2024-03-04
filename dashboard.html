@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <title>Home Setudy.</title>
+    <link rel="icon" type="image/x-icon" href="/asset/icon/ic-logo-setudy.svg">
+
+
+</head>
+
+<body>
+    <div class="splash">
+        <div class="text-merge">
+            <div class="self-text">
+                <h1 id="self">Self&nbsp;</h1>
+            </div>
+            <div class="study-text">
+                <h1 id="study">Study.</h1>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="navbar">
+            <div class="nav-logo">
+                <h1>Setudy.</h1>
+            </div>
+            <div class="nav-prof">
+                <div class="prof"><img src="/asset/icon/ic-profile-setudy.svg" alt=""></div>
+                <div class="prof-info">
+                    <h1 id="user">adasdasd</h1>
+                    <h2 id="mail">asada@gmail.com</h2>
+                </div>
+                <img src="/asset/icon/ic-logout-setudy.svg" alt="" class="logout" id="sign">
+            </div>
+        </div>
+    </nav>
+    <div class="hero">
+        <div class="welcome-text">
+            <h1 id="hello"></h1>
+            <div class="welcome-h2">
+                <h2>Selamat datang di Setudy. kamu bisa eksplorasi berbagai ragam materi pembelajaran disini!</h2>
+
+            </div>
+        </div>
+        <div class="main">
+            <div class="container-belajar">
+                <div class="pelajaran-con">
+                    <div class="pelajaran-text">
+                        <h1>Mata pelajaran</h1>
+                        <div class="pelajaran-h2">
+                            <h2>Mulai belajar secara gratis dengan mata pelajaran yang tersedia!</h2>
+
+                        </div>
+
+                    </div>
+                    <div class="belajar-con">
+                        <h1 id="saya">Pelajaran saya</h1>
+                        <div class="grid-saya" id="grid-saya">
+                            <!-- <div class="belajar-card">
+                                <img src="/asset/img/img-mtk.png" alt="">
+                                <div class="card-title">
+                                    <h1>Matematika</h1>
+                                    <h2>Kelas 10</h2>
+                                </div>
+                                <button>Mulai belajar</button>
+                            </div> -->
+                        </div>
+                        <h1>Pelajaran Tersedia</h1>
+                        <div class="grid-tersedia" id="grid-tersedia"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tes-con">
+                <div class="tes-card" id="tes">
+                    <h1>Tes <span>Setudy.</span></h1>
+                    <p>Kamu cocoknya di bidang apa aja sih? ayo tes!</p>
+                    <div class="button-tes">
+                        <a href="/tes/riasec.html"><button>RIASEC</button></a>
+                        <a href="/tes/gaya-belajar.html"><button>Gaya belajar</button></a>
+                    </div>
+                </div>
+                <div class="tes-card" id="soal">
+                    <h1>Soal pelajaran</h1>
+                    <div class="button-soal">
+                        <div class="mtk">
+                            <h1>Matematika</h1>
+                            <a href="/soal/mtk.html"><button>Mulai</button></a>
+                        </div>
+                        <div class="mtk">
+                            <h1>Ipa</h1>
+                            <a href="/soal/ipa.html"><button>Mulai</button></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, get,update, ref , child} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    
+        const firebaseConfig = {
+        apiKey: "AIzaSyC02kA2sOKfzUPLlfeHOr66Vf3HsIpPRhw",
+        authDomain: "setudy-9d61c.firebaseapp.com",
+        databaseURL: "https://setudy-9d61c-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "setudy-9d61c",
+        storageBucket: "setudy-9d61c.appspot.com",
+        messagingSenderId: "583846931989",
+        appId: "1:583846931989:web:fd9f2effc67b313772e81c",
+        measurementId: "G-H3WL8YX8XY"
+       };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+        const dbref = ref(db);
+        const btn = document.getElementById('sign');
+        let creds = JSON.parse(sessionStorage.getItem("creds"));
+        let info = JSON.parse(sessionStorage.getItem("user-info"));
+        let user = document.getElementById('user');
+        let mail = document.getElementById('mail');
+        let hello = document.getElementById('hello');
+        let sayaText = document.getElementById('saya');
+        let gridTersedia = document.getElementsByClassName('grid-saya');
+
+        function splash(){
+        const splash = document.querySelector('.splash');
+        const body = document.querySelector('body');
+        const merge = document.querySelector('.text-merge');
+        const pCon = document.querySelector('.pelajaran-con');
+        const wText = document.querySelector('.welcome-text');
+        const tCard = document.getElementById('tes');
+        const sCard = document.getElementById('soal');
+        const self = document.getElementById('self');
+        const study = document.getElementById('study');
+
+
+        body.style.overflow = 'hidden'
+        setTimeout(()=>{
+        merge.style.opacity = 1;
+        },800)
+        setTimeout(()=>{
+        self.style.transform = 'translateX(0%)'
+        study.style.transform = 'translateX(0%)'
+        },1800)
+        setTimeout(()=>{
+            splash.style.opacity = 0;
+        },3600)
+        setTimeout(()=>{
+            splash.style.display = 'none';
+            body.style.overflow = 'scroll'
+            
+        },4600)
+        setTimeout(()=>{
+            wText.style.transform = 'translateY(0%)';
+            wText.style.opacity = 1;
+            pCon.style.transform = 'translateY(0%)';
+            pCon.style.opacity = 1;
+            sCard.style.transform = 'translateY(0%)';
+            sCard.style.opacity = 1;
+            tCard.style.transform = 'translateY(0%)';
+            tCard.style.opacity = 1;
+
+        },4000)
+        }
+        function getCard() {
+            get(child(dbref, `UsersAuthList/${creds.uid}/tersedia`)).then((student)=> {
+                        console.log(student.val())
+                        
+
+                        student.forEach(std => {
+                           
+                            if(std.val().condition == true){
+                                sayaText.style.display = 'flex';
+                                const grid = document.getElementById('grid-saya');
+                            const card = document.createElement('div');
+                            const title = document.createElement('div');
+                            const listItem = document.createElement('h1');
+                            const tema = document.createElement('h1');
+                            const kelas = document.createElement('h2');
+                            const btn = document.createElement('button');
+                            const a = document.createElement('a');
+                            
+
+                            card.classList.add('belajar-card');
+                            listItem.innerHTML = `<img src="${std.val().img}">`;
+                            title.classList.add('card-title');
+                            tema.innerHTML = std.val().mapel;
+                            kelas.innerHTML = std.val().kelas;
+                            btn.innerHTML = 'Lanjutkan Belajar';
+                            a.href = std.val().ref;
+
+                            grid.appendChild(card)
+                            card.appendChild(listItem);
+                            card.appendChild(title);
+                            title.appendChild(tema);
+                            title.appendChild(kelas);
+                            card.appendChild(a)
+                            a.appendChild(btn);
+                            }else if ( std.val().condition == false){
+                                const grid = document.getElementById('grid-tersedia');
+                            const card = document.createElement('div');
+                            const title = document.createElement('div');
+                            const listItem = document.createElement('h1');
+                            const tema = document.createElement('h1');
+                            const kelas = document.createElement('h2');
+                            const btn = document.createElement('button');
+                            const a = document.createElement('a');
+
+                            card.classList.add('belajar-card');
+                            listItem.innerHTML = `<img src="${std.val().img}">`;
+                            title.classList.add('card-title');
+                            tema.innerHTML = std.val().mapel;
+                            kelas.innerHTML = std.val().kelas;
+                            btn.innerHTML = 'Mulai Belajar';
+                            a.href = std.val().ref;
+
+                            function changeCondition() {
+                                update(ref(db, 'UsersAuthList/' + creds.uid + '/tersedia/' + std.val().key ),{
+                                    condition:true
+                                })
+                               }
+
+                            grid.appendChild(card)
+                            card.appendChild(listItem);
+                            card.appendChild(title);
+                            title.appendChild(tema);
+                            title.appendChild(kelas);
+                            card.appendChild(a)
+                            a.appendChild(btn);
+
+                            btn.addEventListener('click', changeCondition)
+                            
+                            }
+                            
+                        });
+                    })
+        } 
+        let signout = ()=> {
+            sessionStorage.removeItem("creds");
+            sessionStorage.removeItem("user-info");
+            window.location.href = 'index.html';
+        }
+        let check = ()=>{
+            if (!sessionStorage.getItem("creds")){
+                window.location.href = 'index.html'
+
+            } else{
+                splash()
+                getCard()
+                user.innerText = info.username
+                mail.innerText = creds.email
+                hello.innerText = `halo, ${info.username}`
+            }
+        }
+        window.addEventListener('load' , check);
+        btn.addEventListener('click', signout)
+</script>
+
+</body>
+
+</html>

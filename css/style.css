@@ -1,0 +1,325 @@
+*{
+    padding: 0;
+    margin: 0; 
+    font-family: 'Work Sans';
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 100%;
+}
+.nav-logo h1{
+font-weight: 600;
+letter-spacing: 2px;
+font-size: 32px;
+color: #343f56;
+}
+.masuk{
+    background-color: transparent;
+    border: #343f56 1px solid;
+    font-size: 14px;
+    color: #343f56;
+    padding: 10px 24px 10px 24px ;
+    border-radius: 8px;
+}
+.masuk:hover{
+    cursor: pointer;
+}
+.daftar{
+    background-color: #343f56;
+    font-size: 14px;
+    color: white;
+    padding: 10px 24px 10px 24px ;
+    border-radius: 8px;
+    border: none;
+    width: fit-content;
+    height: fit-content;
+}
+.daftar:hover{
+    cursor: pointer;
+
+}
+.container{
+    width: 100vw;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero{
+    width: 90%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-hero{
+   display: flex;
+   flex-direction: column;
+   width: 50%;
+
+}
+.text-container{
+   width: 80%;
+   gap: 2vh;
+   display: flex;
+   flex-direction: column;
+
+    
+}
+.text-container h1{
+    font-size: 58px;
+    font-weight: 500;
+}
+.text-container p{
+    font-size: 16px;
+    font-weight: 500;
+    color: #838383;
+
+    
+}
+
+
+.image-hero{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-hero img{
+    width: 60%;
+}
+
+/* macam macam */
+
+.category{
+    width: 100%;
+    height: 35vh;
+    background-color: #F0F4F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5vh;
+}
+.category h1{
+font-size: 32px;
+font-weight: 600;
+text-align: center;
+}
+.category-list{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    gap: 2vh;
+}
+.list{
+    background-color: white;
+    padding: 16px 32px 16px 32px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: row;
+}
+.list h2{
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 1vh;
+
+}
+.green{
+    width: 15px;
+    height: 15px;
+    background-color: #343f56;
+    border-radius: 54px;
+}
+
+
+.how{
+    width: 100vw;
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5vh;
+
+}
+.how h1{
+    font-size: 40px;
+    font-weight: 500;
+
+}
+.how span{
+    color: #343f56;
+    font-weight: 600;
+}
+
+.card-list{
+    height: auto;
+    width: 75%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 15%;
+    justify-content: center;
+    align-items: center;
+}
+.container-card{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    width: 225px;
+    height: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.con-card{
+    width: 150px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3vh;
+
+}
+.con-card img{
+    width: 35%;
+}
+.con-card h1{
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+.daftar-page{
+    width: 100vw;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+}
+.daftar-page h1{
+    font-size: 48px;
+    font-weight: 500;
+    text-align: center;
+}
+.daftar-page span{
+    color: #343f56;
+    font-weight: 600;
+}
+.daftar-p{
+    width: 20%;
+}
+.daftar-p p{
+    font-size: 16px;
+    font-weight: 500;
+    color: #838383;
+    text-align: center;
+}
+.daftar-page img{
+    width: 60%;
+}
+.daftar-page .masuk{
+    padding: 12px 54px 12px 54px ;
+    
+}
+
+footer{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4vh;
+}
+footer h1{
+    font-size: 64px;
+    font-weight: 600;
+    color: #343f56;
+}
+hr{
+    border: 0.5px #bbb solid;
+    width: 85%;
+}
+.kontak{
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 48px;
+}
+
+@media only screen and  (max-width: 834px) {
+    .container{
+        height: auto;
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
+    
+    .hero{
+        flex-direction: column;
+        gap: 5vh;
+        
+    }
+    .text-hero{
+        width: 90%;
+    }
+    .text-container{
+        width: 70%;
+    }
+   
+    .image-hero{
+        width: 90%;
+    }
+    .image-hero img{
+        width: 100%;
+    }
+    .category-list{
+        flex-wrap: wrap;
+    }
+    .how{
+        height: auto;
+        padding-top: 15vh;
+        padding-bottom: 10vh;
+    }
+    .card-list{
+        grid-template-columns: 50% 50%;
+    }
+    .next-ic{
+        display: none;
+    }
+    
+    .daftar-p{
+        width: 60%;
+    }
+    .con-card{
+        width: 100%;
+        height: 100%;
+    }
+}

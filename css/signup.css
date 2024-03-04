@@ -1,0 +1,148 @@
+*{
+    padding: 0;
+    margin: 0; 
+    font-family: 'Work Sans';
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 100%;
+}
+.nav-logo h1{
+font-weight: 600;
+letter-spacing: 2px;
+font-size: 32px;
+color: #343f56;
+}
+
+
+.signup{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.signup-container{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-form{
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2vh;
+}
+.signup-form h1{
+    font-size: 32px;
+    font-weight: 600;
+}
+.signup-form span{
+    color: #343f56;
+}
+.signup-p {
+    width: 60%;
+}
+.signup-p p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #838383;
+    text-align: center;
+}
+form{
+    width: 55%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4vh;
+    
+
+}
+
+
+.input-group{
+    width: 100%;
+ display: flex;
+ flex-direction: column;
+    align-items: center;
+    gap: 8px;
+ 
+}
+.input-group input{
+    width: 100%;
+    border: #343f56 1px solid;
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 4px;
+}
+.button-group{
+    width: 100%;
+}
+.sign{
+    background-color: #343f56;
+    font-size: 14px;
+    color: white;
+    width: 100%;
+    padding: 10px 24px 10px 24px ;
+    border-radius: 8px;
+    border: none;
+}
+.daftar-group{
+    width: 100%;
+    display: flex;
+    margin-top: 12px;
+
+}
+.daftar-group p{
+    font-size: 14px;
+    font-weight: 400;
+    color: #838383;
+}
+.daftar-group a{
+    text-decoration: none;
+    color: #343f56;
+}
+@media only screen and  (max-width: 1200px) {
+    #img-sign{
+        display: none;
+    }
+    .signup-container{
+        width: 80%;
+    }
+}
+@media only screen and  (max-width: 834px) {
+    
+    .signup-container{
+        width: 100%;
+    }
+    form{
+        width: 80%;
+        height: 90%;
+    }
+}
+
+
+
